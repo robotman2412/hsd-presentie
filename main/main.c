@@ -60,7 +60,7 @@ void app_main() {
         pax_background(&buf, col);
         
         // This text is shown on screen.
-        char             *text = "Hello, MCH2022!";
+        char             *text = "Present Card!";
         
         // Pick the font (Saira is the only one that looks nice in this size).
         const pax_font_t *font = pax_font_saira_condensed;
