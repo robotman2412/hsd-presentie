@@ -43,3 +43,9 @@
 [submodule "tools"]
 	path = tools
 	url = https://github.com/badgeteam/mch2022-tools
+[submodule "components/arduino-esp32"]
+	path = components/arduino-esp32
+	url = https://github.com/espressif/arduino-esp32
+[submodule "main/PN532"]
+	path = main/PN532
+	url = https://github.com/robotman2412/PN532.git
