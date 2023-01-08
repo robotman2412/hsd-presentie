@@ -7,6 +7,7 @@
 
 #pragma once
 
+extern "C" {
 // For pin mappings.
 #include "hardware.h"
 // For graphics.
@@ -28,6 +29,7 @@
 // For exiting to the launcher.
 #include "soc/rtc.h"
 #include "soc/rtc_cntl_reg.h"
+}
 
 // Updates the screen with the last drawing.
 void disp_flush();

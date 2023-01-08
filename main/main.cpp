@@ -18,7 +18,7 @@ static const char *TAG = "mch2022-demo-app";
 
 // Updates the screen with the latest buffer.
 void disp_flush() {
-    ili9341_write(get_ili9341(), buf.buf);
+    ili9341_write(get_ili9341(), buf.buf_8bpp);
 }
 
 // Exits the app, returning to the launcher.
@@ -27,7 +27,7 @@ void exit_to_launcher() {
     esp_restart();
 }
 
-void app_main() {
+extern "C" void app_main() {
   
     
     ESP_LOGI(TAG, "Welcome to the template app!");
