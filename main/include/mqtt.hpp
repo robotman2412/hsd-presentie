@@ -5,14 +5,13 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
 
 #include <stdio.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
-#include "esp_wifi.h"
 #include "esp_system.h"
-#include "nvs_flash.h"
 #include "esp_event.h"
 #include "esp_netif.h"
 
@@ -33,12 +32,12 @@ class MQTTClient {
 		// Current connection status.
 		bool isConnected;
 		
+		// Internal copy of client ID.
+		std::string clientID;
 		// Internal copy of broker address.
 		std::string address;
 		// Internal copy of broker port.
 		int port;
-		// ESP-MQTT configuration.
-		esp_mqtt_client_config_t config;
 		// ESP-MQTT client handle.
 		esp_mqtt_client_handle_t handle;
 		
@@ -47,6 +46,11 @@ class MQTTClient {
 		
 		// Handles MQTT events.
 		void eventHandler(esp_event_base_t base, int32_t event_id, void *event_data);
+		// Handles MQTT data events.
+		void onData(std::string topic, std::string data);
+		
+		// Set of topics to subscribe to on connect.
+		std::set<std::pair<std::string, int>> subscriptions;
 		
 	public:
 		// Message callback type.

@@ -7,11 +7,11 @@
 
 #pragma once
 
+// For graphics.
+#include "pax_gfx.h"
 extern "C" {
 // For pin mappings.
 #include "hardware.h"
-// For graphics.
-#include "pax_gfx.h"
 // For PNG images.
 #include "pax_codecs.h"
 // The screen driver.
@@ -31,7 +31,17 @@ extern "C" {
 #include "soc/rtc_cntl_reg.h"
 }
 
-// Updates the screen with the last drawing.
+#include <string>
+
+// Last card read time.
+extern int64_t cardReadTime;
+// Last card read name.
+extern std::string cardReadName;
+
+// Global graphics buffer; drawn to screen with `disp_flush()`.
+extern pax_buf_t buf;
+
+// Updates the screen with the last drawing (from `buf`).
 void disp_flush();
 
 // Exits the app, returning to the launcher.

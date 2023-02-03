@@ -7,6 +7,7 @@ idf_component_register(
     SRCS
         "main.cpp"
         "mqtt.cpp"
+        "graphics.cpp"
         
         "PN532/PN532_HSU/PN532_HSU.cpp"
         "PN532/PN532_I2C/PN532_I2C.cpp"
